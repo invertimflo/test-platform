@@ -124,6 +124,7 @@ services:
       start_period: 40s
 
   weixin-plugin-host:
+    image: wharttest-weixin-plugin-host:latest
     build:
       context: ./WHartTest_WeixinPluginHost
       dockerfile: Dockerfile
