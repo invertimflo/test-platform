@@ -1,0 +1,91 @@
+# UI自动化执行器配置文件
+# 复制此文件为 config.toml 并修改配置
+
+[server]
+# WebSocket服务器地址
+ws_url = "ws://127.0.0.1:8000/ws/ui/actuator/"
+# API服务器地址
+api_url = "http://127.0.0.1:8000"
+# 是否启用 GUI 登录窗口（需要安装 CustomTkinter）
+# true = 使用图形界面登录（推荐）
+# false = 使用配置文件中的账号密码，适合服务器无头部署
+use_gui = true
+# API认证用户名（仅 use_gui=false 时有效）
+api_username = "admin"
+# API认证密码（仅 use_gui=false 时有效）
+api_password = "admin123"
+
+[actuator]
+# 执行器名称（可选，默认自动生成）
+# name = "my-actuator"
+# 执行器描述（可选）
+# description = "测试执行器"
+
+[browser]
+# 浏览器类型: chromium, firefox, webkit
+browser_type = "chromium"
+# 是否无头模式
+headless = false
+# 是否持久化浏览器上下文
+persistent = true
+# 持久化数据目录
+user_data_dir = "./data/browser"
+# 浏览器启动超时（秒）
+launch_timeout = 30
+# 操作超时（秒）
+action_timeout = 30
+
+# HTTPS 客户端证书请在 Web 端「接口自动化 / UI 自动化 → 环境管理 → 客户端证书」
+# 统一配置：证书按项目集中保管，保存 UI 自动化环境并绑定证书后，
+# 使用执行器执行时会自动随任务下发，无需在本文件配置。
+# （origin 由环境的基础 URL 自动推导；口令只经「平台 → 执行器」通道下发。）
+
+[execution]
+# 失败重试次数
+retry_count = 3
+# 步骤间隔时间（毫秒）
+step_interval = 500
+# 截图保存目录
+screenshot_dir = "./data/screenshots"
+# 批量执行最大并发数（同时运行的用例数）
+max_concurrent = 3
+
+[trace]
+# 是否启用 Playwright Trace（用于调试回放）
+enabled = true
+# Trace 保存目录
+trace_dir = "./data/traces"
+# 是否记录截图
+screenshots = true
+# 是否记录 DOM 快照
+snapshots = true
+# 是否记录源代码
+sources = false
+
+[logging]
+# 日志级别: DEBUG, INFO, WARNING, ERROR
+level = "INFO"
+# 日志文件（可选，不设置则只输出到控制台）
+# file = "./data/logs/actuator.log"
+
+[gui]
+# GUI 语言: zh, en
+language = "zh"
+
+[model]
+# AI 模型配置（用于 step_type=10「AI操作」步骤，AI Agent 自主驱动 Playwright）
+# OpenAI 兼容端点（vllm / ollama / OpenAI / Azure 等均兼容）
+api_url = "http://192.168.2.180:3000/v1"
+api_key = "sk-Cra0HlWnPgKnL8VP03Df097eA3B24dBcB1904d32C3812783"
+# 模型名称
+model = "qwen3-coder"
+# 提供者类型（当前仅支持 openai_compatible，预留扩展）
+provider = "openai_compatible"
+# 是否为视觉模型(VLM)：true 时通过截图理解页面；false 时用可访问性树/innerText 文本快照
+supports_vision = false
+# 模型上下文上限(估算 token)，超过阈值会触发历史压缩
+context_limit = 100000
+# AI 单步骤最大工具调用轮数（安全阈值，避免死循环）
+max_steps = 25
+# 采样温度，0 表示尽量确定性
+temperature = 0.0
