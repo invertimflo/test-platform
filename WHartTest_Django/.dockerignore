@@ -1,0 +1,106 @@
+# Python缓存和编译文件
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 虚拟环境（所有可能的虚拟环境目录）
+env/
+venv/
+.venv/
+ENV/
+env.bak/
+venv.bak/
+.pyenv/
+.virtualenv/
+virtualenv/
+
+# Django运行时数据和临时文件
+*.log
+db.sqlite3
+db.sqlite3-journal
+chat_history.sqlite
+media/
+staticfiles/
+local_settings.py
+*.pid
+celerybeat-schedule
+
+# IDE和编辑器
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+
+# Git
+.git/
+.gitignore
+.gitattributes
+.github/
+
+# 文档
+README.md
+docs/
+*.md
+!THIRD_PARTY_NOTICES.md
+LICENSE
+
+# 测试
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+.hypothesis/
+pytest_cache/
+test_*.py
+*_test.py
+tests/
+**/tests/
+
+# 环境变量
+.env
+.env.*
+.env.local
+.env.*.local
+
+# Docker相关
+Dockerfile
+Dockerfile.*
+.dockerignore
+docker-compose*.yml
+
+# 部署脚本和临时文件
+deploy-scripts/
+*.tmp
+*.bak
+*.swp
+*~.nib
+
+# Node 相关（录制器本地安装的 playwright：node_modules 含符号链接
+# .bin/playwright -> ../playwright/cli.js，COPY 符号链接会导致
+# "invalid file request" 构建失败；运行时依赖在容器内按 package.json 安装）
+node_modules/
+**/node_modules/
+package-lock.json.bak
+
+# 本地数据和缓存
+nltk_data/
+*.sqlite
+*.sqlite3
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+*.sql
+db.sqlite3
+chat_history.sqlite
