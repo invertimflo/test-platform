@@ -1,0 +1,51 @@
+[server]
+ws_url = "ws://127.0.0.1:8000/ws/ui/actuator/"
+api_url = "http://localhost:8912"
+use_gui = true
+api_key = "wharttest-default-mcp-key-2025"
+api_username = "test"
+api_password = "test123456"
+
+[actuator]
+
+
+[browser]
+browser_type = "chromium"
+headless = false
+persistent = false
+user_data_dir = "./data/browser"
+launch_timeout = 30
+action_timeout = 5
+viewport_width = 1920
+viewport_height = 1080
+# HTTPS 客户端证书由 Web 端「环境管理 → 客户端证书」统一配置，保存环境时自动下发
+
+[execution]
+retry_count = 3
+step_interval = 100
+screenshot_dir = "./data/screenshots"
+max_concurrent = 2
+fail_fast = true
+
+[trace]
+enabled = true
+trace_dir = "./data/traces"
+screenshots = true
+snapshots = true
+sources = true
+
+[logging]
+level = "INFO"
+
+[gui]
+language = "zh"
+
+[model]
+api_url = "http://192.168.2.180:3000/v1"
+api_key = "sk-Cra0HlWnPgKnL8VP03Df097eA3B24dBcB1904d32C3812783"
+model = "qwen3-coder"
+provider = "openai_compatible"
+supports_vision = false
+context_limit = 100000
+max_steps = 25
+temperature = 0.3

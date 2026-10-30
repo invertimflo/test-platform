@@ -79,9 +79,6 @@ docs/superpowers/
 docs/competitive-analysis/
 .freebuff
 
-# Actuator
-WHartTest_Actuator/config.toml
-
 # add develop files
 WHartTest_Actuator/dist/
 !AGENTS.md
